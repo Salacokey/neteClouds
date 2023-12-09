@@ -4,7 +4,7 @@ import Community from "@/views/community/community.vue";
 const routes = [
   {
     path: "/",
-    redirect: "/person",
+    redirect: "/home",
   },
   {
     path: "/login",
