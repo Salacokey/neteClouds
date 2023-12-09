@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 4348425 */
+  src: url('iconfont.woff2?t=1701086266476') format('woff2'),
+       url('iconfont.woff?t=1701086266476') format('woff'),
+       url('iconfont.ttf?t=1701086266476') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-saoma:before {
+  content: "\e749";
+}
+
+.icon-caidan:before {
+  content: "\e608";
+}
+
+.icon-maikefeng:before {
+  content: "\e647";
+}
+
+.icon-sousuo:before {
+  content: "\e66a";
+}
+
