@@ -89,5 +89,18 @@ export default class {
       return this.tracks[(this.index = 0)];
     return this.tracks[++this.index];
   }
-  getTrackDetail() {}
+  // 播放上一首
+  playPreviousTrack() {
+    const LastTrack = this.getPreviousTrack();
+    // this.moun_audio_src(next_track, true)
+    this.playTrack(LastTrack);
+  }
+  // 获取上一首播放的id
+  getPreviousTrack() {
+    if (this.loopMode == 1) return this.tracks[this.index];
+    const currentTrackIsLast = this.index - 1 < 0;
+    if (currentTrackIsLast && this.loopMode == 0)
+      return this.tracks[(this.index = this.tracks.length)];
+    return this.tracks[--this.index];
+  }
 }

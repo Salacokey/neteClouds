@@ -82,6 +82,7 @@
         <div class="mt-[4vw] dark:text-white">+音乐应用</div>
       </div>
       <div class="bg-[#fff] dark:bg-[#2C2C2C] w-[92vw] rounded-3xl h-[21vw] mt-[4vw]">
+        <router-link :to="{path: '/person', query: {personid:likeList.id}}">
         <div class="mt-[4vw] flex justify-between">
           <div class="flex">
             <img class="w-[13vw] h-[13vw] rounded-2xl mt-[4vw] ml-[5vw]" :src="likeList.coverImgUrl" alt="">
@@ -95,6 +96,7 @@
             <span class="text-xs mt-[1vw] dark:text-white">心动模式</span> 
           </div>
         </div>
+        </router-link>
       </div>
       <nav class="flex justify-evenly h-[15vw] items-center font-semibold relative w-[80vw] mx-auto">
         <div class="dark:text-[#f1f1f1] text-[#2a3146] text-[3.3vw]">创建歌单</div>
@@ -106,14 +108,18 @@
         <p class="dark:text-[#ECECEC] text-[#2a3146] font-semibold text-[4vw] mb-[4.4vw] mx-[4vw]">创建的歌单<span class="dark:text-[#A1A1A1] text-[#9599a3] text-[2.7vw] ml-[1.6vw] font-[200]">({{ this.createList.length }}个)</span></p>
         <ul class="px-[4vw] pb-[4vw]">
           <li class="flex mb-[1.5vw]" v-for="item in createList" :key="item.id">
-            <div class="relative pt-[0.6vw] mr-[2.6vw] ">
-              <img :src="item.coverImgUrl" class="w-[12vw] h-[12vw] rounded-[10px] bg-black z-[2] relative">
-              <div class="dark:bg-[#434343] w-[9vw] h-[4vw] bg-[#ddd] bg-opacity-50 absolute top-[0vw] left-1/2 -translate-x-1/2 rounded-[6px] z-[1]"></div>
-            </div>
-            <div class="flex flex-wrap items-center flex-1 py-[1vw]">
-              <p class="dark:text-[#E6E6E6] w-[100%] text-[3.8vw] text-[#3f4659] line-clamp-1">{{ item.name }}</p>
-              <p class="dark:text-[#B7B7B7] w-[100%] text-[2.8vw] text-[#aaadb5] line-clamp-1">{{ item.trackCount }}首，播放{{ item.playCount }}次</p>
-            </div>
+            <router-link :to="{path: '/person', query: {personid:item.id}}">
+              <div class="flex mb-[1.5vw]">
+                <div class="relative pt-[0.6vw] mr-[2.6vw] ">
+                  <img :src="item.coverImgUrl" class="w-[12vw] h-[12vw] rounded-[10px] bg-black z-[2] relative">
+                  <div class="dark:bg-[#434343] w-[9vw] h-[4vw] bg-[#ddd] bg-opacity-50 absolute top-[0vw] left-1/2 -translate-x-1/2 rounded-[6px] z-[1]"></div>
+                </div>
+                <div class="flex flex-wrap items-center flex-1 py-[1vw]">
+                  <p class="dark:text-[#E6E6E6] w-[100%] text-[3.8vw] text-[#3f4659] line-clamp-1">{{ item.name }}</p>
+                  <p class="dark:text-[#B7B7B7] w-[100%] text-[2.8vw] text-[#aaadb5] line-clamp-1">{{ item.trackCount }}首，播放{{ item.playCount }}次</p>
+                </div>
+              </div>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -124,14 +130,18 @@
         </p>
         <ul class="px-[4vw] pb-[4vw]">
           <li class="flex mb-[1.5vw]" v-for="item in collectList" :key="item.id">
-            <div class="relative pt-[0.6vw] mr-[2.6vw] ">
-              <img :src="item.coverImgUrl" class="w-[12vw] h-[12vw] rounded-[10px] bg-black z-[2] relative">
-              <div class="dark:bg-[#434343] w-[9vw] h-[4vw] bg-[#ddd] bg-opacity-50 absolute top-[0vw] left-1/2 -translate-x-1/2 rounded-[6px] z-[1]"></div>
-            </div>
-            <div class="flex flex-wrap items-center flex-1 py-[1vw]">
-              <p class="dark:text-[#E6E6E6] w-[100%] text-[3.8vw] text-[#3f4659] line-clamp-1">{{ item.name }}</p>
-              <p class="dark:text-[#B7B7B7] w-[100%] text-[2.8vw] text-[#aaadb5] line-clamp-1">{{ item.trackCount }}首，By异世界食品，播放{{ item.playCount }}次</p>
-            </div>
+            <router-link :to="{path: '/person', query: {personid:item.id}}">
+              <div class="flex mb-[1.5vw]">
+                <div class="relative pt-[0.6vw] mr-[2.6vw] ">
+                  <img :src="item.coverImgUrl" class="w-[12vw] h-[12vw] rounded-[10px] bg-black z-[2] relative">
+                  <div class="dark:bg-[#434343] w-[9vw] h-[4vw] bg-[#ddd] bg-opacity-50 absolute top-[0vw] left-1/2 -translate-x-1/2 rounded-[6px] z-[1]"></div>
+                </div>
+                <div class="flex flex-wrap items-center flex-1 py-[1vw]">
+                  <p class="dark:text-[#E6E6E6] w-[100%] text-[3.8vw] text-[#3f4659] line-clamp-1">{{ item.name }}</p>
+                  <p class="dark:text-[#B7B7B7] w-[100%] text-[2.8vw] text-[#aaadb5] line-clamp-1">{{ item.trackCount }}首，By异世界食品，播放{{ item.playCount }}次</p>
+                </div>
+              </div>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -190,13 +200,12 @@ export default {
   created(){
     this.getDetail(),
     this.getPlay()
-    console.log(this.auth);
   },
 
   methods: {
     async getDetail(){
       const [err, res] = await postDetailData({ uid: this.$store.state.auth.account.id });
-      if(!err) console.log("歌单详情",res);
+      if(!err) 
       this.level = res.data.level
       this.follows = res.data.profile.follows
       this.followeds = res.data.profile.followeds
@@ -208,7 +217,7 @@ export default {
     },
     async getPlay(){
       const [err, res] = await postPlayListData({ uid: this.$store.state.auth.account.id });
-      if(!err) console.log("所有歌单",res);
+      if(!err) 
       this.likeList = res.data.playlist[0]
       for(let i = 1;i<res.data.playlist.length;i++){
         if (res.data.playlist[i].ordered==false) {

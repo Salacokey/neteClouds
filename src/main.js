@@ -35,6 +35,7 @@ import { Circle } from 'vant';
 import VueSlider from "vue-slider-component"
 import "vue-slider-component/theme/default.css"
 
+import * as Sentry from "@sentry/vue";
 Vue.component('VueSlider',VueSlider)
 Vue.use(Circle);
 Vue.use(AudioPlayer)
@@ -65,6 +66,19 @@ Vue.use(SwipeItem);
 
 Vue.config.productionTip = false;
 
+Sentry.init({
+  Vue,
+  dsn: "https://2848b3f5933b59b9d60578f6f53da2be@o4506314774740992.ingest.sentry.io/4506386412011520",
+  integrations: [
+    new Sentry.BrowserTracing({
+      routingInstrumentation: Sentry.vueRouterInstrumentation(router),
+      tracePropagationTargets: [],
+    }),
+  ],
+  tracesSampleRate: 1.0,
+  replaysSessionSampleRate: 0.1,
+  replaysOnErrorSampleRate: 1.0,
+});
 new Vue({
   store,
   router,

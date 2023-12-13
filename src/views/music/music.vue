@@ -29,8 +29,10 @@
         </div>
         <div class="relative top-[2%] w-[100vw] h-[120vw]">
           <div
-            class="absolute top-[10%] left-[50%] translate-x-[-50%] z-[10] rotated w-[30vw] h-[40vw]"
+            class="absolute top-[10%] left-[50%] z-[10] rotated w-[30vw] h-[40vw]"
+           
           >
+          <!-- :style="mixin_player.play()?'transform: rotate(-10deg);':'transform: rotate(-45deg);'" -->
             <img
               src="https://admirable-jalebi-ce44af.netlify.app/static/needle-ab.png"
               alt=""
@@ -76,7 +78,13 @@
           <div class="h-[8vw] w-[100vw] flex items-center px-[5vw] mt-[3vw]">
             <!-- <div class="text-[#fff] text-[1.6vw] scale-[0.8] opacity-80"></div>
             <div class="flex-1 mx-[2.5vw] vue-slider vue-slider-ltr"></div> -->
-            <vue-slider v-model="value" :width="500" :min="0" :max="100" class="w-[100%]"></vue-slider>
+            <vue-slider
+              v-model="value"
+              :width="500"
+              :min="0"
+              :max="100"
+              class="w-[100%]"
+            ></vue-slider>
           </div>
           <div class="h-[12.3vw] flex w-[100vw] items-center justify-evenly">
             <div>
@@ -87,11 +95,14 @@
               />
               <icon icon="cil:loop-1" v-else class="text-[#fff] text-[8vw]" />
             </div>
-            <div>
+            <div @click="mixin_player.playPreviousTrack()">
               <icon icon="fluent:previous-32-regular" class="text-[#fff]" />
             </div>
             <div
-              @click="mixin_player.toggle()"
+              @click="
+                mixin_player.toggle();
+                img_flag = !img_flag;
+              "
               class="w-[12vw] h-[12vw] rounded-[50%] bg-[#fff] flex items-center justify-center"
             >
               <icon
@@ -200,7 +211,8 @@ export default {
   data() {
     return {
       show: false,
-      value:0
+      value: 0,
+      img_flag: false,
     };
   },
 
@@ -230,5 +242,14 @@ export default {
 }
 .red-image {
   filter: url("data:image/svg+xml;utf8,<svg xmlns=%27http://www.w3.org/2000/svg%27><filter id=%27colorize%27><feColorMatrix type=%27matrix%27 values=%271 0 0 0 0.698 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0%27/></filter></svg>#colorize");
+}
+.trans {
+  transform-origin: 15% 10%;
+  transition: 0.5s;
+  transform: rotateZ(-10deg);
+}
+
+.tranroy {
+  transform: rotateZ(-40deg);
 }
 </style>

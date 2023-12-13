@@ -10,6 +10,8 @@
   "dependencies": {
     "@better-scroll/core": "^2.5.1",
     "@better-scroll/scroll-bar": "^2.5.1",
+    "@sentry/tracing": "^7.86.0",
+    "@sentry/vue": "^7.86.0",
     "axios": "^1.6.2",
     "axios-retry": "^4.0.0",
     "better-scroll": "^2.5.1",

@@ -41,7 +41,7 @@ export default {
 
   created() {
     this.listenList = this.resource.extInfo
-    
+    console.log(this.listenList);
   },
 };
 </script>
