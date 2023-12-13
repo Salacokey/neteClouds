@@ -68,7 +68,7 @@ Vue.config.productionTip = false;
 
 Sentry.init({
   Vue,
-  dsn: "https://2848b3f5933b59b9d60578f6f53da2be@o4506314774740992.ingest.sentry.io/4506386412011520",
+  dsn: "https://53b757a44724e6e966010b04a816cc60@o4506386923454464.ingest.sentry.io/4506386975621120",
   integrations: [
     new Sentry.BrowserTracing({
       routingInstrumentation: Sentry.vueRouterInstrumentation(router),
